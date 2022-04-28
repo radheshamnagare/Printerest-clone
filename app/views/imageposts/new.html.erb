@@ -1,9 +1,13 @@
-<h1>New imagepost</h1>
+<div class="card">
+  <div class="card-header">
+   <h1>New imagepost</h1> 
+  </div>
 
-<%= render "form", imagepost: @imagepost %>
-
-<br>
-
+  
+   <%= render "form", imagepost: @imagepost %>
+ 
+</div>
+<br/>
 <div>
-  <%= link_to "Back to imageposts", imageposts_path %>
+  <%= link_to "Back", imageposts_path ,class:"btn btn-dark btn-sm" %>
 </div>
