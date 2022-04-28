@@ -1,0 +1,21 @@
+<div class="card">
+<div class="card-body">
+<h1>Imageposts</h1>
+<%= link_to "New imagepost", new_imagepost_path ,class:"btn btn-dark"%>
+</div>
+</div>
+<br/><br/>
+<div class="card">
+<div class="card-body">
+<div id="imageposts">
+  <% @imageposts.each do |imagepost| %>
+   <div class="clm">
+    <%= render imagepost %>
+    <p>
+      <%= link_to "Show this imagepost", imagepost %>
+    </p>
+    </div>
+  <% end %>
+</div>
+</div>
+</div>
