@@ -6,6 +6,7 @@
   <%if current_user == @imagepost.user%>
   <%= link_to "Edit this imagepost", edit_imagepost_path(@imagepost) ,class:"btn btn-secondary btn-sm"%> 
   <%end%>
+   <%=link_to "Download" ,rails_blob_path(@imagepost.image),class:"btn btn-secondary btn-sm",download: true %>
   <%= link_to "Back ", imageposts_path ,class:"btn btn-secondary btn-sm"%>
 
 </div>
