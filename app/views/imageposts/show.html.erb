@@ -3,14 +3,16 @@
 <%= render @imagepost %>
 
 <div class="card-body">
+  <%if current_user == @imagepost.user%>
   <%= link_to "Edit this imagepost", edit_imagepost_path(@imagepost) ,class:"btn btn-secondary btn-sm"%> 
+  <%end%>
   <%= link_to "Back ", imageposts_path ,class:"btn btn-secondary btn-sm"%>
 
 </div>
 </div>
 <br/>
 
-
+<%if current_user == @imagepost.user%>
 <div class="card">
   <div class="card-body">
    <h3> Unhappy want to delete ?</h3>
@@ -18,3 +20,4 @@
  </div>
 </div>
 <br/><br/>
+<%end%>

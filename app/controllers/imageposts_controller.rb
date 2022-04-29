@@ -1,6 +1,7 @@
 class ImagepostsController < ApplicationController
   before_action :set_imagepost, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_user!,except: [:index]
+  
   # GET /imageposts or /imageposts.json
   def index
     @imageposts = Imagepost.all
@@ -57,6 +58,14 @@ class ImagepostsController < ApplicationController
     end
   end
 
+  def mypage
+     @imageposts = current_user.Imageposts.all
+  end
+
+  def search
+    @imageposts = Imagepost.where("title LIKE ?","%"+params[:q]+"%")
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_imagepost
@@ -65,6 +74,6 @@ class ImagepostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def imagepost_params
-      params.require(:imagepost).permit(:title,:image)
+      params.require(:imagepost).permit(:title,:image,:user_id)
     end
 end

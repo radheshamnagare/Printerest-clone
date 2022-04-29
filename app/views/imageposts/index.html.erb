@@ -1,8 +1,21 @@
+<%if user_signed_in? %>
+<a href="#">Hi , <%= current_user.email%></a>
+<%end%>
+
+<br/><br/>
 <div class="card">
    <div class="card-body">
     <h1>Imageposts</h1>
-    <%= link_to "New imagepost", new_imagepost_path ,class:"btn btn-dark"%>
-   </div>
+    
+   
+   <form class="d-flex" action="/search">
+   <%= link_to "New imagepost", new_imagepost_path ,class:"btn btn-dark"%>
+   &nbsp;&nbsp;
+   
+      <input class="form-control " name="q" type="search" placeholder="Search" style="width:300px;float: left;">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+    </div>
 </div>
 
 
